@@ -20,6 +20,7 @@ public class Main {
         for (int r = 0; r<p; r++) {
             Animal animal = animals[r];
             animal.speak();
+
         }
     }
 }
