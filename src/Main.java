@@ -1,7 +1,8 @@
 package src;
 
 public class Main {
-    public Main(){}
+
+
     public static void main(String[] args) {
         Calculator calculator = new CalculatorInher();
 
