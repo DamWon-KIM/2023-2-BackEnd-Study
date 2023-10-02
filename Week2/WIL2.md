@@ -1,11 +1,11 @@
 ### HTTP란?
- HyperText Transfer Protocol
- 클라이언트와 서버가 자원을 주고 받을 때 쓰는 통신 규약으로, 요청/응답 모델에 기반한다
- 서로 다른 시스템들 사이에서 통신을 주고 받게 해주는 application 계층 protocol
+ HyperText Transfer Protocol </br>
+ 클라이언트와 서버가 자원을 주고 받을 때 쓰는 통신 규약으로, 요청/응답 모델에 기반한다 </br>
+ 서로 다른 시스템들 사이에서 통신을 주고 받게 해주는 application 계층 protocol </br>
 
-Hypertext[다른 페이지의 링크를 담고 있는 문서]
-Transfer [이동 통신]
-Protocol [규약]
+Hypertext [다른 페이지의 링크를 담고 있는 문서] </br>
+Transfer  [이동 통신] </br>
+Protocol  [규약] </br>
 
  ### HTTP의 특징
  * Transfer layer
@@ -43,7 +43,7 @@ HTTP는 보안이 취약해서 도청과 위장, 변조가 가능한데 HTTPS는
 
 
 #### HTTP Method
- REST를 지키면서 행위를 전달하는 방
+ REST를 지키면서 행위를 전달하는 방 </br>
  클라이언트가 서버에 특정 요청을 보낼 때, 웹서버에게 요청하는 목적 및 그 종류를 알리는 수단으로 HTTP Method를 사용한다.
 
  * GET : 리소스 조회
