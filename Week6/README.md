@@ -95,5 +95,43 @@ Java Persistence API </br>
   * Hibernate : JPA에 대한 구현체(JPA는 인터페이스이다)
 
 이는 아래와 같은 특징을 가진다.
+  1. 객체-테이블 매핑 : 어노테이션 또는 XML을 사용하여 자바 객체와 데이터베이스 테이블을 매핑함 </br>
+  2. 쿼리 언어 사용 : JPQL (Java Persistence Query Language)라는 객체지향 쿼리 언어를 제공하여 데이터베이스에 질의할 수 있음 </br>
+  3. 생명주기 관리 : 엔티티의 생명 주기(예: 생성, 조회, 수정, 삭제)를 관리함 </br>
+  4. 캐싱 : 기본적인 캐시 전략을 지원함 </br>
+  5. 자동 스키마 생성 : 데이터베이스 스키마를 자동으로 생성하거나 업데이트 할 수 있음 </br>
 
+  JPA는 위와 같은 특성을 영속성 컨텍스트를 이용하여 구현한다. </br>
+  영속성 컨텍스트는 엔티티를 영구 저장하는 환경을 의미한다. </br>
+
+#### 영속성 컨텍스트
+```
+어플리케이션과 데이터베이스 사이에서 객체를 보관하는 가상의 저장소 같은 역할
+Entity Manage를 통해 영속성 컨텍스트에 접근
+```
+
+### Mapping
+#### Entity
+ 데이터베이스의 테이블과 자바 클래스를 매핑하는 역할을 한다.
+ 엔티티 클래스는 데이터베이스 테이블의 레코드를 객체로 표현하며, JPA를 사용하여 이 객체를 관리할 수 있다.
+     
+```
+@Entity
+// 해당 클래스는 JPA가 관리하는 엔터티로 표시되며, 데이터베이스 테이블과 연동될 수 있게 됨
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 이 값이 기본키 임을 나타냄
+    private Long id;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Feed> feeds;
+
+    private String name;
+}
+```
     
+  실제 서비스는 무수히 많은 엔티티가 있고, 이 엔티티 간의 관계를 기반으로 다양한 정보를 저장한다. 이를 위해 ERD(Entity-Relation Diagram)을 사용하며, 이 내용을 기반으로 객체를 구현한다. </br>
+ERD에는 데이터베이스의 구조에 관한 메타 데이터, 명세를 적어둔다. </br>
+  디비에서 데이터의 자료형은 Java의 자료형과 다른 자료형을 사용한다. </br>
+  JPA가 알맞은 자료형으로 바꿔주지만, 이를 알고 있어야 ERD를 만들 수 있다. </br>
